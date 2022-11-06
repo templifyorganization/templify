@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Templify</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+    <body style="background-color:#a6c4a9">
+        <div class="dropdown">
+        <ul>
+        <li class="dropdownmenu"><a href=templify.html>Home</a></li>
+        <li class="dropdownmenu"><a href=aboutus.html>About Us</a></li>
+        <li id="dropdownmenu1"><a>Meet The Team</a>
+            <div class="sub-menu">
+                <ul>
+                    <li class="meettheteam"><a href='Kaavya.html'>Kaavya</a></li>
+                    <li class="meettheteam"><a href='Esha.html'>Esha</a></li>
+                    <li class="meettheteam"><a href='Rhea.html'>Rhea</a></li>
+                    <li class="meettheteam"><a href='Amritha.html'>Amritha</a></li>
+                    <li class="meettheteam"><a href='John.html'>John</a></li>
+                </ul>
+            </div>
+        </li>
+        </ul>
+        </div>
+        <img src="images/Make your template!.jpg" alt="Make Your Template Now!" id="mytn">
+        
+        <div class="container py-5"> 
+
+            <br> 
+      
+            <form name="google-sheet"> 
+      
+              <label for="businessname">Business Name</label> 
+      
+              <input type="text" id="fname" name="Business Name" placeholder="Ex: Target"> 
+      
+              <label for="salename">Sale Name</label> 
+      
+              <input type="text" id="fname" name="Sale Name" placeholder="Ex: Christmas Clearance"> 
+      
+              <br> 
+      
+              <label for="salepercent">Sale Percentage</label> 
+      
+              <input type="text" id="lname" name="Sale Percentage" placeholder="Ex: 50% off"> 
+      
+         
+      
+              <label for="promocode">Promotional Code</label> 
+      
+              <input type="text" id="promocode" name="Promo Code" placeholder="Ex: HOLIDAY20"> 
+      
+               
+      
+              <br> 
+      
+              <label for="category">Category</label> 
+      
+              <input type="text" id="lname" name="Category" placeholder="Ex: Jeans"> 
+      
+           
+      
+              <label for="season">Season</label> 
+      
+              <select id="country" name="country"> 
+      
+                <option value="fall">Fall</option> 
+      
+                <option value="winter">Winter</option> 
+      
+                <option value="spring">Spring</option> 
+      
+                <option value="summer">Summer</option> 
+      
+              </select> 
+      
+              <br> 
+      
+              <label for="image">Image</label> 
+      
+              <input type="image" id="image" name="image" placeholder="Ex: img.jpg"><br> 
+      
+         
+      
+              <label for="details">Details</label> <br> 
+      
+              <textarea id="details" name="details" placeholder="Terms and conditions.." style="height:200px"></textarea> 
+      
+              <br> 
+      
+              <input type="submit" value="Templify"> 
+      
+           
+      
+            </form> 
+      
+          </div> 
+      
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+      
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script> 
+      
+          <script> 
+      
+              const scriptURL = 'https://script.google.com/macros/s/AKfycbxqNBSOBQouyRw5mhEoSrj_zUYlgBrt-iBE_AuWUMnRBr6lETjJHMC_4jS4YL2cWN-V/exec' 
+      
+              const form = document.forms['google-sheet'] 
+      
+               
+      
+              form.addEventListener('submit', e => { 
+      
+                  e.preventDefault() 
+      
+                  fetch(scriptURL, { method: 'POST', body: new FormData(form)}) 
+      
+                  .then(response => $("#form_alerts").html("<div class='alert alert-success'>Contact message sent successfully.</div>")) 
+      
+                  .catch(error => $("#form_alerts").html("<div class='alert alert-danger'>Contact message not sent.</div>")) 
+      
+              }) 
+      
+          </script> 
+    </body>
+</html>
